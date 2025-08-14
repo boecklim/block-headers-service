@@ -205,7 +205,7 @@ type chain []*domains.BlockHeader
 
 func lowestHeightOf(c *chain, oh *domains.BlockHeader) int32 {
 	f := c.first()
-	if f.Height < oh.Height {
+	if f != nil && f.Height < oh.Height {
 		return f.Height
 	}
 	return oh.Height
